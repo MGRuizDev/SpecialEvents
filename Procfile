@@ -1,1 +1,1 @@
-web: gunicorn special-events:app
+web: gunicorn SpecialEvents:app
