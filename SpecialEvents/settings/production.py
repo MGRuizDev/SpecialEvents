@@ -127,11 +127,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-                os.path.join(BASE_DIR, "static", "static"),
-            ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static", "static-only")
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
 #if:
 #    MEDIA_URL = '/media/'       #Will hold media content such as image file
